@@ -7,30 +7,30 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 
-	<title>CSL Search by Name (bare-bones example page)</title>
+	<title>CSL Search by Example (bare-bones example page)</title>
 
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="../external/jstree/themes/default/style.css" />
 
-	<link rel="stylesheet" type="text/css" href="../css/base.css?bust=693c3b9484f7e15fe8a51dae962130d9b2d7dda8" />
-	<link rel="stylesheet" type="text/css" href="../css/searchResults.css?bust=693c3b9484f7e15fe8a51dae962130d9b2d7dda8" />
-	<link rel="stylesheet" type="text/css" href="../css/searchByName.css?bust=693c3b9484f7e15fe8a51dae962130d9b2d7dda8" />
+	<link rel="stylesheet" type="text/css" href="../css/base.css?bust=8f983def29e03d12d23b46a379e3e44f3bcb2c6f" />
+	<link rel="stylesheet" type="text/css" href="../css/searchResults.css?bust=8f983def29e03d12d23b46a379e3e44f3bcb2c6f" />
+	<link rel="stylesheet" type="text/css" href="../css/searchByExample.css?bust=8f983def29e03d12d23b46a379e3e44f3bcb2c6f" />
 
 	<script type="text/javascript" src="../external/require-jquery.js"></script>
 	<script>
 		require.config({
 			baseUrl: "..",
-			urlArgs : "bust=693c3b9484f7e15fe8a51dae962130d9b2d7dda8"
+			urlArgs : "bust=8f983def29e03d12d23b46a379e3e44f3bcb2c6f"
 		});
 		requirejs(['src/config'], function (config) {
-			require(['src/SearchByName'], function (CSLEDIT_SearchByName) {
-				var searchByName = new CSLEDIT_SearchByName('#searchByNameContainer', {});
+			require(['src/SearchByExample'], function (CSLEDIT_SearchByExample) {
+				var searchByExample = new CSLEDIT_SearchByExample('#searchByExampleContainer', {});
 			});
 		});
 	</script>
 </head>
 <body>
-<div id="searchByNameContainer">
+<div id="searchByExampleContainer">
 </div>
 </body>
 </html>

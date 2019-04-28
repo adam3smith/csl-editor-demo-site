@@ -11,14 +11,21 @@ echo ""
 
 
 if [ -d "./docs" ]; then
-  BUILD_DIR="./docs"
+  GH_PAGE="./docs"
 else
   mkdir docs
-  BUILD_DIR="./docs"
+  GH_PAGE="./docs"
 fi
 
+if [ -d "./tmp" ]; then
+  BUILD_DIR="./tmp"
+else
+  mkdir tmp
+  BUILD_DIR="./tmp"
+fi
 
 rm -rf "$BUILD_DIR"
+rm -rf "$GH_PAGE"
 node cslEditorLib/external/r.js -o build.js dir=$BUILD_DIR
 
 # doing this becuase the cjsTranslate r.js option breaks citeproc.js
@@ -50,6 +57,13 @@ find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
 
 # Run Jekyll
 jekyll build
+
+cd "$GH_PAGE"
+cp -r $BUILD_DIR/_site/* .
+
+# Clean_up
+rm -rf "$BUILD_DIR"
+
 
 cd ..
 
