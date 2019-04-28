@@ -24,6 +24,8 @@ else
   BUILD_DIR="./tmp"
 fi
 
+echo "doc folder created as $GH_PAGE"
+
 rm -rf "$BUILD_DIR"
 
 node cslEditorLib/external/r.js -o build.js dir=$BUILD_DIR
@@ -52,21 +54,20 @@ done < filesToConvert
 rm filesToConvert
 
 # Remove any *.php files in external libraries
+
 find external -name "*.php" -type f -print0 | xargs -0 rm -f
 find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
 
 # Run Jekyll
 jekyll build
 
-cd $GH_PAGE
+cd ../$GH_PAGE
 
 cp -r $BUILD_DIR/_site/* .
 
+cd ..
 # Clean_up
 rm -rf "$BUILD_DIR"
-
-
-cd ..
 
 git add --all
 git commit -m "deploy"
